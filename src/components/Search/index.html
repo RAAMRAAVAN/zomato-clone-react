@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+    <page>
+        <header>
+            <heading>
+                <div class="logo"><p class="edureka_logo">e!</p></div>
+                <div class="button">
+                    <button class="login_button">Login</button>
+                    <button class="create_button">Create an account</button>
+                </div>
+            </heading>
+        </header>
+        <breakfast_places>
+            <div class="page_heading">Breakfast Places in Mumbai</div>
+            <div class="container">
+                <div class="filters">
+                    <div class="Tfilters">Filters</div>
+                        <location>
+                            <label for="select-location" class="Tselect-location">Select Location</label>
+                            <select id="select-location"  class="locations">
+                                <option>Select Location</option>
+                            </select>
+                        </location>
+                    
+                    <div class="cuisine">
+                        <p class="Tcuisine">Cuisine</p>
+                        <div class="check-box">
+                            <input type="checkbox" id="NI"/>
+                            <label for="NI" class="cuisine_color">North India</label>
+                        </div>
+                        <div class="check-box" id="SI">
+                            <input type="checkbox" checked />
+                            <label class="cuisine_color">South India</label>
+                        </div>
+                        <div class="check-box" id="CH">
+                            <input type="checkbox" checked disabled/>
+                            <label class="cuisine_color">Chinese</label>
+                        </div>
+                        <div class="check-box">
+                            <input type="checkbox" id="FF"/>
+                            <label for="FF" class="cuisine_color">Fast Food</label>
+                        </div>
+                        <div class="check-box" >
+                            <input type="checkbox"id="SF"/>
+                            <label for="SF" class="cuisine_color">Street Food</label>
+                        </div>
+                    </div>
+                    
+                    <div class="cost-for-two">
+                        <p class="Tcost-of-two">Cost for Two</p>
+                        <div class="less-then">
+                            <input type="radio" name="cost-for-two" id="lt500"/>
+                            <label for="lt500" class="cost_of_two_color">Less than ` 500</label>
+                        </div>
+                        <div class="less-then">
+                            <input type="radio" name="cost-for-two" id="500t1000"/>
+                            <label for="500t1000" class="cost_of_two_color">` 500 to ` 1000</label>
+                        </div>
+                        <div class="less-then">
+                            <input type="radio" name="cost-for-two" id="1000t1500"/>
+                            <label for="1000t1500" class="cost_of_two_color">` 1000 to ` 1500</label>
+                        </div>
+                        <div class="less-then">
+                            <input type="radio" name="cost-for-two" id="1500t2000"/>
+                            <label for="1500t2000" class="cost_of_two_color">` 1500 to ` 2000</label>
+                        </div>
+                        <div class="less-then">
+                            <input type="radio" name="cost-for-two" id="2000"/>
+                            <label for="2000" class="cost_of_two_color">` 2000+</label>
+                        </div>
+                    </div>
+                    
+                    <div class="sort">
+                        <p class="Tsort">Sort</p>
+                        <div class="lhl"> 
+                            <input type="radio" name="sort" id="lth"/>
+                            <label for="lth" class="sort_color">Price low to high</label>
+                        </div>    
+                        <div class="lhl"> 
+                            <input type="radio" name="sort" id="htl"/>
+                            <label for="htl" class="sort_color">Price high to low</label>
+                        </div> 
+                    </div>
+                </div>
+                <div class="menu">
+                    <div class="templet_food_location">
+                        <div class="shop">
+                            <div class="for-image">
+                                <img class="food-image" src="./pic/shutterstock_1154073754.png"/>
+                            </div>
+                            <div class="restaurant_discription">
+                                <div class="restaurant_name">The Big Chill Cakery</div>
+                                <div class="fort">FORT</div>
+                                <div class="address">Shop 1, Plot D, Samruddhi Complex, Chincholi …</div>
+                            </div>
+                        </div>
+                        <div class="cost">
+                            <div class="topic">
+                                <div>CUISINES:</div>
+                                <div>COST FOR TWO:</div>
+                            </div>
+                            <div class="amount">
+                                <div>Bakery</div>
+                                <div> ₹700</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="templet_food_location">
+                        <div class="shop">
+                            <div class="for-image">
+                                <img class="food-image" src="./pic/shutterstock_1154073754.png"/>
+                            </div>
+                            <div class="restaurant_discription">
+                                <div class="restaurant_name">The Bake Shop</div>
+                                <div class="fort">FORT</div>
+                                <div class="address">Shop 1, Plot D, Samruddhi Complex, Chincholi …</div>
+                            </div>
+                        </div>
+                        <div class="cost">
+                            <div class="topic">
+                                <div>CUISINES:</div>
+                                <div>COST FOR TWO:</div>
+                            </div>
+                            <div class="amount">
+                                <div>Bakery</div>
+                                <div> ₹700</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pages">
+                        <button class="arrow">&lt;</button>
+                        <button class="one">1</button>
+                        <button class="button2">2</button>
+                        <button class="button2">3</button>
+                        <button class="button2">4</button>
+                        <button class="button2">5</button>
+                        <button class="arrow">&gt;</button>
+                    </div>
+                </div> 
+            </div>             
+        </breakfast_places>
+    </page>
+</body>
+</html>

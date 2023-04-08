@@ -1,0 +1,337 @@
+
+*{margin:0;
+font-family: poppins;
+padding:0;
+}
+.page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FBFBFB;
+}   
+.searchheader{
+    width:100%;
+    height:11vh;
+    background-color: #CE0505;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.heading{
+    display:flex;
+    width:85%;
+    height:8vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left:3%;
+}
+
+.logo{
+    background-color: red;
+    width:50px;
+    height:8vh;
+    color:white;
+    /* border-radius: 25px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right:72%;
+    font-family: Poppins;
+} 
+.edureka_logo{
+    font-weight: bold;
+    color:#EB2929;
+    font-size:30px;
+    font-family: normal normal 600 33px/50px Poppins;
+}
+.button{
+    display: flex;
+    /* border:1px white solid; */
+    display: flex;
+    width:25%;
+    height:7vh;
+}
+.login_button{
+    background-color: transparent;
+    /* border:1px white solid; */
+    /* margin-right:3%; */
+    color:white;
+    width:69px;
+    height:7vh;
+    padding:0px;
+    border:none;
+    text-align: left;
+}
+.create_button{
+    background-color: transparent;
+    border:1px white solid;
+    color:white;
+    padding:2% 6%;
+    border-radius: 4px;
+    width:181px;
+    height:7vh;
+    font-size: 14px;
+    margin-right:0;
+    /* opacity:1; */
+}
+breakfast_places{
+    display: flex;
+    flex-direction: column;
+    /* border:1px black solid; */
+    width:80%;
+    height:100vh;
+    margin-top:2.5%;
+    
+}
+.page_heading{
+    /* border:1px black solid; */
+    color:#192F60;
+    font-size: 37px;
+    font-weight: bold;
+    font-family:Poppins;
+}
+.container{
+    display: flex;
+    /* border:2px black solid; */
+    width:100%;
+    height:150vh;
+}
+.filters{
+    background-color: white;
+    width:22%;
+    height:98vh;
+    box-shadow: 0.5px 0.5px 5px 0.5px gray;
+    display: flex;
+    flex-direction: column;
+    margin:3% 0%;
+    /* border:2px black solid; */
+    padding:25px 26px 31px 27px;
+    color:#192F60;
+    /* justify-content: space-between; */
+
+}
+.Tfilters{font-weight: bold;
+    font-size: 19px;}
+location{
+    display: flex;
+    flex-direction: column;
+        /* border:2px black solid; */
+    height:12vh;    
+    /* justify-content: space-between; */
+    margin-bottom: 3vh;
+}
+.Tselect-location{
+    margin-top: 1.6vh;
+    border-color: transparent;
+}
+.locations{
+    width:90%;
+    height: 10vh;
+    /* background-color: #636F88; */
+    padding:10px 10px;
+    /* padding-right:10%; */
+    color: #8C96AB;
+    margin-top: 1.2vh;
+    /* margin-bottom: 10vh; */
+    /* border:1px #8C96AB solid; */
+    border-radius: 0.5vh;
+    /* Box-shadow: 0 0 5px 0 grey; */
+    border-color: #8C96AB;
+}
+.cuisine{
+    display: flex;
+    /* border:1px black solid; */
+    height:27vh;
+    flex-direction: column;
+    /* margin-top: 4vh; */
+    font-size: 15px;
+    justify-content: space-between;
+}
+/* .Tcuisine{
+    /* margin-top: 6vh;   */
+    /* margin-bottom: 1.8vh; 
+} */
+.cuisine_color{
+    color:#8C96AB;
+padding-left: 5%;
+}
+.cost-for-two{
+display: flex;
+/* border:1px black solid; */
+height:30vh;
+flex-direction: column;
+/* margin-bottom: 2vh; */
+font-size: 15px;
+margin-top: 4vh;
+justify-content: space-between;
+
+}
+/* .Tcost-of-two{
+    /* margin-top: 6vh;   */
+    /* margin-bottom: 1.8vh; 
+} */
+.cost_of_two_color{
+    color:#8C96AB;
+padding-left: 5%;
+margin-bottom: 1.5vh;
+}
+ .sort{
+    display: flex;
+    /* border:1px black solid; */
+    height:12vh;
+    flex-direction: column;
+    margin-top: 4vh;
+    font-size: 15px;  
+    justify-content: space-between;
+} 
+.Tsort{font-weight: bold;
+    /* margin-bottom: 1.8vh; */
+
+}
+.sort_color{
+    color:#8C96AB;
+padding-left: 5%;
+margin-bottom: 1.5vh;
+}
+.menu{
+    display: flex;
+    width:67%;
+    /* border:3px red solid; */
+    margin-top:3%;
+    margin-left:3%;
+    height:112vh;
+    flex-direction: column;
+}
+.templet_food_location{
+    display: flex;
+    flex-direction:column;
+    /* border: 1px black solid; */
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:50vh;
+    margin-bottom:40px;
+    background-color: #FFFFFF;
+    /* padding-left:5%; */
+    padding-top:3%;
+    /* padding:6%; */
+    box-shadow: 0.5px 0.5px 5px 0.5px gray;
+
+}
+.shop{
+    display: flex;
+    width:93%;
+    border-bottom: 1px #DEDFE5 solid;
+        /* border: 1px black solid; */
+    height:25vh;
+}
+.cost{
+    display: flex;
+    width:80%;
+    /* border: 1px red solid; */
+    height:10vh;
+    /* padding:1%; */
+    padding-top:2%;
+}
+.for-image{
+    display:flex;
+    width:150px;
+    height:150px;
+    /* border:1px black solid; */
+    margin-bottom:0%;    
+}
+.food-image{width:130px;
+height:130px;
+border-radius:30px;
+}
+.restaurant_discription{
+    display: flex;
+    flex-direction: column;
+    /* border:1px black solid; */
+    width:70%;
+    height:20vh;
+}
+.restaurant_name{
+    font-weight: bold;
+    font-size: 30px;
+    color:#192F60;
+    margin-top:3%;
+    padding-left:5%;
+}
+.fort{
+    color:#192F60;
+    padding-left:5%;
+    font-weight: bold;
+    font-size:13px;
+    margin-top:1%;
+}
+.address{
+    color:#636F88;
+    padding-left:5%;
+    font-size:14px;
+    margin-top:1%;
+}
+.topic{
+    display: flex;
+    flex-direction:column;
+    color:#636F88;
+    /* font-size:18px; */
+    margin:0%;
+}
+.amount{
+    display: flex;
+    flex-direction:column;
+    color:#192F60;
+    font-weight:600;
+    margin-left:9%;
+}
+.pages{
+    display: flex;
+    width:100%;
+    height:12vh;
+    /* border:1px red solid; */
+    justify-content: center;
+    /* align-items: center; */
+}
+.one, .button2{
+    width:4.5%;
+    height: 50%;
+    margin:5px;
+    padding-top:2.5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:#8C96AB;
+    border-color:#8C96AB;
+    background-color: transparent;
+    border-radius: 7px;
+    font-size: 18px;
+}
+/* .one{
+    width:4.5%;
+    height: 50%;
+    margin:5px;
+    display:flex;
+    padding-top:2.5px;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    background-color: #8C96AB;
+    border-radius: 7px;
+    font-size: 18px;
+} */
+.arrow{
+    width:4.5%;
+    height: 50%;
+    margin:5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:#8C96AB;
+    padding-top:2.5px;
+    border-color:#8C96AB;
+    background-color: transparent;
+    border-radius: 7px;
+    font-size: 30px;
+}

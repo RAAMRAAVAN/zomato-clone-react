@@ -1,0 +1,217 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+.signupLink{
+  display: flex;
+  width:90%;
+  justify-content: center;
+}
+.mail{
+  
+  width:25px;
+  height:25px;
+}
+.background{
+    background-image: linear-gradient( transparent,#4F0707), url("bg.png");
+    opacity: 100%;
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width:100%;
+}
+.header-container{
+    padding-top:10px;
+}
+.edureka-logo{
+    width:100px;
+    height:100px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    font-style: italic;
+}
+
+.guwahati-suggestions, .restaurant-suggestions{
+  width:100%;
+  color:#636F88;
+}  
+
+.search-image{
+  display: flex;
+  width:40px;
+  height:40px;
+  border-radius: 50%;
+}
+.suggestion-title{
+  color:#192F60;
+  font-weight: 900;
+}
+.suggestion-text{
+  font-size: 14px;
+}
+.QS{
+  color:#192F60;
+}
+.QS-text{
+  color:#8C96AB;
+}
+.breakfast-title{
+  font-weight:bolder;
+  color:#192F60;
+}
+.breakfast-text{
+  color:#8C96AB;
+}
+.select-item:hover{
+  background-color: blue;
+}
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+    /* CSS */
+    .cutton-container{
+        justify-content: end;
+        /* border:1px black solid; */
+
+    }
+    
+  }
+  
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    
+    /* CSS */
+    .cutton-container{
+        justify-content: end;
+        /* border:1px black solid; */
+    }
+
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    
+    /* CSS */
+    .header-container{
+        padding-top:5px;
+        padding-right: 10px;
+    }
+    .cutton-container{
+        justify-content: end;
+        /* border:1px black solid; */
+    }
+    .edureka-logo{
+        width:80px;
+        height:80px;
+    }
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+    /* CSS */
+    .header-container{
+        padding-top:5px;
+        padding-right: 10px;
+    }
+    .cutton-container{
+        justify-content: end;
+        /* border:1px black solid; */
+    }
+    
+  }
+  
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  
+  @media (min-width: 651px) and (max-width: 767px) {
+    
+    /* CSS */
+    .header-container{
+        padding-top:5px;
+        padding-right: 10px;
+    }
+    .cutton-container{
+        justify-content: end;
+        /* border:1px black solid; */
+    }
+    .edureka-logo{
+        width:75px;
+        height:75px;
+    }
+    .restaurant{
+      margin:0px;
+      margin-top:10px;
+    }
+  }
+  @media (min-width: 576px) and (max-width: 650px){
+    /* CSS */
+    .header-container{
+        padding-top:5px;
+        padding-right: 10px;
+    }
+    .cutton-container{
+        justify-content: end;
+        /* border:1px black solid; */
+    }
+    .edureka-logo{
+        width:75px;
+        height:75px;
+    }
+    .restaurant{
+      margin:0px;
+      margin-top:10px;
+    }
+  }
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media (min-width: 320px) and (max-width: 575px) {
+    
+    /* CSS */
+    .header-container{
+        padding-top:5px;
+        padding-right: 10px;
+    }
+    .cutton-container{
+        justify-content: space-between;
+        /* border:1px black solid; */
+    }
+    .create-btn, .login-btn{
+        padding:0px;
+    }
+    .edureka-logo{
+        width:50px;
+        height:50px;
+    }
+    .restaurant{
+      margin:0px;
+      margin-top:10px;
+    }
+  }
+
+
+  
