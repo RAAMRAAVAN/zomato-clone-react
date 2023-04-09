@@ -32,8 +32,8 @@ function Header() {
       title: 'Login Successful',
       text: 'user Loged in successfully',
     }).then(()=>{
-      Navigate("/")
-      // window.location.reload();
+      // Navigate("/")
+      window.location.reload();
     })
   };
   let onError = () => {

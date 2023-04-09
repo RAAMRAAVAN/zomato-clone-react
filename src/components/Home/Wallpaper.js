@@ -68,8 +68,8 @@ function Wallpaper() {
     let data = jwt_decode(token);
     console.log("token", data);
     alert("user Loged in successfully");
-    // window.location.reload();
-    Navigate("/")
+    window.location.reload();
+    // Navigate("/")
   };
   let onError = () => {
     alert("Login Failed");
@@ -79,8 +79,8 @@ function Wallpaper() {
     localStorage.removeItem("user");
     alert("User Loged out successfully");
     setUserLogin(false);
-    // window.location.reload();
-    Navigate("/")
+    window.location.reload();
+    // Navigate("/")
   };
   return (
     <GoogleOAuthProvider clientId="474870145945-g63ahuiehm6c8v08kkd8cvfff2s90bd0.apps.googleusercontent.com">

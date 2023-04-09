@@ -187,24 +187,6 @@ const RestaurantPage = () => {
   };
 
   return (
-    <>
-      <div className="modal fade" id="slideShow" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div className="modal-dialog modal-lg" style={{height:"75vh"}}>
-          <div className="modal-content">
-            <div className="modal-body h-75">
-              <Carousel showThumbs={false} infiniteLoop={true}>
-                {restaurant.thumb.map((value, index)=>{
-                  return(
-                    <div key={index} className="w-100">
-                      <img src={value} alt="slideshow"/>
-                    </div>
-                  )
-                })}
-              </Carousel>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="container-fluid">
         <div
           className="modal fade"
@@ -213,6 +195,23 @@ const RestaurantPage = () => {
           aria-labelledby="exampleModalToggleLabel"
           tabindex="-1"
         >
+          <div className="modal fade" id="slideShow" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal-dialog modal-lg" style={{height:"75vh"}}>
+              <div className="modal-content">
+                <div className="modal-body h-75">
+                  <Carousel showThumbs={false} infiniteLoop={true}>
+                    {restaurant.thumb.map((value, index)=>{
+                      return(
+                        <div key={index} className="w-100">
+                          <img src={value} alt="slideshow"/>
+                        </div>
+                      )
+                    })}
+                  </Carousel>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-header">
@@ -411,7 +410,6 @@ const RestaurantPage = () => {
           </section>
         </section>
       </div>
-    </>
   );
 };
 export default RestaurantPage;
