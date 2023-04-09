@@ -53,7 +53,7 @@ const RestaurantPage = () => {
   let getRestaurantDetails = async () => {
     try {
       let URL =
-        "http://127.0.0.1:5000/api/get-restaurant-details-by-id/" +
+        "https://zomato-clone-backend5.onrender.com/api/get-restaurant-details-by-id/" +
         restaurant_ID;
       let { data } = await axios.get(URL);
       console.log(data);
@@ -70,7 +70,7 @@ const RestaurantPage = () => {
     setSubtotal(0);
     try {
       let URL =
-        "http://localhost:5000/api/get-menu-item-list-by-restaurent-id/" +
+        "https://zomato-clone-backend5.onrender.com/api/get-menu-item-list-by-restaurent-id/" +
         restaurant_ID;
       let { data } = await axios.get(URL);
       console.log(data);
@@ -109,7 +109,7 @@ const RestaurantPage = () => {
     }
     try {
       let { data } = await axios.post(
-        "http://localhost:5000/api/payment/gen-order",
+        "https://zomato-clone-backend5.onrender.com/api/payment/gen-order",
         { amount: subtotal * 100 }
       );
       console.log("pay", data);
@@ -135,7 +135,7 @@ const RestaurantPage = () => {
           razorpay_signature: response.razorpay_signature,
         };
         let { data } = await axios.post(
-          "http://localhost:5000/api/payment/verify",
+          "https://zomato-clone-backend5.onrender.com/api/payment/verify",
           paymentData
         );
         console.log("payment status=", data.status);

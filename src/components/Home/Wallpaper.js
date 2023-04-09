@@ -11,7 +11,7 @@ function Wallpaper() {
   const [collapseID, setCollapseID] = useState("");
   let getLocationList = async () => {
     try {
-      let result = await axios.get("http://localhost:5000/api/get-location");
+      let result = await axios.get("https://zomato-clone-backend5.onrender.com/api/get-location");
       let data = result.data;
       console.log(data);
       if (data.status === true) {
@@ -25,7 +25,7 @@ function Wallpaper() {
   let getRestaurantById = async (location_ID) => {
     try {
       let response = await axios.get(
-        "http://localhost:5000/api/get-restaurant-by-location-id/" + location_ID
+        "https://zomato-clone-backend5.onrender.com/api/get-restaurant-by-location-id/" + location_ID
       );
       let {status, result} = response.data;
       console.log(result);

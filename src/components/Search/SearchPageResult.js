@@ -14,7 +14,7 @@ function SearchPageResult()
 console.log("res", restaurants)
     let filterOperation=async(filter)=>{
         try{
-            let response=await axios.post("http://localhost:5000/api/filter",filter);
+            let response=await axios.post("https://zomato-clone-backend5.onrender.com/api/filter",filter);
             console.log(response)
             if(response.data.status===true)
                 setRestaurants([...response.data.result]);
@@ -26,7 +26,7 @@ console.log("res", restaurants)
 
     let getLocationList=async()=>{
         try{
-            let result= await axios.get("http://localhost:5000/api/get-location");
+            let result= await axios.get("https://zomato-clone-backend5.onrender.com/api/get-location");
             let data=result.data;
             console.log(data);
             if(data.status===true)

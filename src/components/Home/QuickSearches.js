@@ -7,7 +7,7 @@ function QuickSearches()
     let Navigate=useNavigate();
     let getMealTypes=async()=>{
         try{
-            let result= await axios.get("http://127.0.0.1:5000/api/get-meal-types");
+            let result= await axios.get("https://zomato-clone-backend5.onrender.com/api/get-meal-types");
             let data=result.data;
             console.log("data",data);
             if(data.status===true)
