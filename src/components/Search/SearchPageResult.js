@@ -3,12 +3,13 @@ import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 function SearchPageResult()
 {
+  const pageNumbers=[1,2,3,4,5];
     let params=useParams();
     let navigate = useNavigate();
     let {meal_ID}=params;
     const [restaurants,setRestaurants]=useState([]);
     const [locationList,setLocationList]=useState([]);
-    const [filter,setFilter]=useState({mealtype_id:meal_ID})
+    const [filter,setFilter]=useState({mealtype_id:meal_ID, page:1})
 
 console.log("res", restaurants)
     let filterOperation=async(filter)=>{
@@ -64,6 +65,13 @@ console.log("res", restaurants)
               _filter["lcost"]=Number(HandL[0]);
               _filter["hcost"]=Number(HandL[1]);
               break;
+            case "page":
+              _filter["page"]=Number(value);
+              break;
+            case 'cuisine':
+              console.log("cusine=",value)
+              _filter["cuisine"]=value;
+            break;
             default:
               break;   
         }
@@ -74,6 +82,7 @@ console.log("res", restaurants)
     useEffect(()=>{
         let filter={
           mealtype_id:meal_ID,
+          page:1
         }
         filterOperation(filter);
         getLocationList();
@@ -108,23 +117,23 @@ console.log("res", restaurants)
               {/* <!--cuisins--> */}
               <p className="mt-3 fw-bold">cuisins</p>
               <div className="form-check mb-1">
-                <input type="checkbox" className="form-check-input" value="1"/>
+                <input type="checkbox" className="form-check-input" value="North Indian" onChange={(event)=>makeFilteration(event,"cuisine")}/>
                 <label htmlFor="" className="form-check-label">North Indian</label>
               </div>
               <div className="form-check mb-1">
-                <input type="checkbox" className="form-check-input" value="2"/>
+                <input type="checkbox" className="form-check-input" value="South Indian" onChange={(event)=>makeFilteration(event,"cuisine")}/>
                 <label htmlFor="" className="form-check-label">South Indian</label>
               </div>
               <div className="form-check mb-1">
-                <input type="checkbox" className="form-check-input" value="3"/>
+                <input type="checkbox" className="form-check-input" value="Chinese" onChange={(event)=>makeFilteration(event,"cuisine")}/>
                 <label htmlFor="" className="form-check-label">Chinese</label>
               </div>
               <div className="form-check mb-1">
-                <input type="checkbox" className="form-check-input" value="4"/>
+                <input type="checkbox" className="form-check-input" value="Fast Food" onChange={(event)=>makeFilteration(event,"cuisine")}/>
                 <label htmlFor="" className="form-check-label">Fast Food</label>
               </div>
               <div className="form-check mb-1">
-                <input type="checkbox" className="form-check-input" value="5"/>
+                <input type="checkbox" className="form-check-input" value="Street Food" onChange={(event)=>makeFilteration(event,"cuisine")}/>
                 <label htmlFor="" className="form-check-label">Street Food</label>
               </div>
               {/* <!--cost for two--> */}
@@ -203,16 +212,13 @@ console.log("res", restaurants)
                 <div className=" col-12 my-3">
                   <nav aria-label="Page navigation example">
                     <ul className="pagination d-flex justify-content-center">
-                      <li className="page-item"><a className="page-link m-1 shadow-sm  bg-body rounded" href="#">
-                           </a>
-                      </li>
-                      <li className="page-item"><a className="page-link m-1  shadow-sm  bg-body rounded" href="#">1</a></li>
-                      <li className="page-item"><a className="page-link m-1  shadow-sm  bg-body rounded" href="#">2</a></li>
-                      <li className="page-item"><a className="page-link m-1  shadow-sm  bg-body rounded" href="#">3</a></li>
-                      <li className="page-item"><a className="page-link m-1  shadow-sm  bg-body rounded" href="#">4</a></li>
-                      <li className="page-item"><a className="page-link m-1  shadow-sm  bg-body rounded" href="#">5</a></li>
-                      <li className="page-item"><a className="page-link m-1  shadow-sm  bg-body rounded" href="#">6</a></li>
-                      <li className="page-item"><a className="page-link m-1  shadow-sm  bg-body rounded" href="#"></a></li>
+                      <li className="page-link m-1  shadow-sm  bg-body rounded">&lt;</li>
+                      {pageNumbers.map((value, index)=>{
+                        return(
+                          <li key={index} className="page-link m-1  shadow-sm  bg-body rounded" onClick={(event)=>makeFilteration(event,"page")} value={value}>{value}</li>
+                        )
+                      })}
+                      <li className="page-link m-1  shadow-sm  bg-body rounded">&gt;</li>
                     </ul>
                   </nav>
                 </div>

@@ -5,8 +5,9 @@ import axios from "axios";
 import "./restaurant.css";
 import MenuItem from "./MenuItem";
 import jwt_decode from "jwt-decode";
-import Swal from 'sweetalert2'
-
+import Swal from "sweetalert2";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 const RestaurantPage = () => {
   let [tab, setTab] = useState(1);
   let defaultValue = {
@@ -108,7 +109,8 @@ const RestaurantPage = () => {
     }
     try {
       let { data } = await axios.post(
-        "http://localhost:5000/api/payment/gen-order", {amount: subtotal*100}
+        "http://localhost:5000/api/payment/gen-order",
+        { amount: subtotal * 100 }
       );
       console.log("pay", data);
       var order = data.order;
@@ -139,22 +141,23 @@ const RestaurantPage = () => {
         console.log("payment status=", data.status);
         if (data.status === true) {
           Swal.fire({
-            icon: 'success',
-            title: 'your order has been places! Click here to continue shopping',
+            icon: "success",
+            title:
+              "your order has been places! Click here to continue shopping",
             // text: 'Payment failed, please try again',
             // footer: '<a href="">Why do I have this issue?</a>'
-          }).then(()=>{
+          }).then(() => {
             window.location.replace("/");
-          })
+          });
           // alert("order placed successfully");
           // window.location.replace("/");
         } else {
           Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Payment failed, please try again',
+            icon: "error",
+            title: "Oops...",
+            text: "Payment failed, please try again",
             // footer: '<a href="">Why do I have this issue?</a>'
-          })
+          });
           // alert("Payment failed, please try again");
         }
       },
@@ -184,207 +187,231 @@ const RestaurantPage = () => {
   };
 
   return (
-    <div className="container-fluid">
-      <div
-        className="modal fade"
-        id="exampleModalToggle"
-        aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel"
-        tabindex="-1"
-      >
-        <div className="modal-dialog modal-dialog-centered">
+    <>
+      <div className="modal fade" id="slideShow" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div className="modal-dialog modal-lg" style={{height:"75vh"}}>
           <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title fw-bold" id="exampleModalToggleLabel">
-                {restaurant.name}
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+            <div className="modal-body h-75">
+              <Carousel showThumbs={false} infiniteLoop={true}>
+                {restaurant.thumb.map((value, index)=>{
+                  return(
+                    <div key={index} className="w-100">
+                      <img src={value} alt="slideshow"/>
+                    </div>
+                  )
+                })}
+              </Carousel>
             </div>
-            <div className="modal-body">
-              {menuitems.map((item, index) => {
-                return (
-                  <>
-                    <MenuItem
-                      key={index}
-                      index={index}
-                      item={item}
-                      updateSubtotal={updateSubtotal}
-                      updateMenuItems={updateMenuItems}
-                      menuitems={menuitems}
-                    />
-                  </>
-                );
-              })}
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid">
+        <div
+          className="modal fade"
+          id="exampleModalToggle"
+          aria-hidden="true"
+          aria-labelledby="exampleModalToggleLabel"
+          tabindex="-1"
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5
+                  className="modal-title fw-bold"
+                  id="exampleModalToggleLabel"
+                >
+                  {restaurant.name}
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                {menuitems.map((item, index) => {
+                  return (
+                    <>
+                      <MenuItem
+                        key={index}
+                        index={index}
+                        item={item}
+                        updateSubtotal={updateSubtotal}
+                        updateMenuItems={updateMenuItems}
+                        menuitems={menuitems}
+                      />
+                    </>
+                  );
+                })}
+              </div>
+              <div className="modal-footer justify-content-between">
+                <p className="fw-bold">Subtotal `{subtotal}</p>
+                <button
+                  className="btn btn-danger"
+                  data-bs-target="#exampleModalToggle2"
+                  data-bs-toggle="modal"
+                >
+                  Pay Now
+                </button>
+              </div>
             </div>
-            <div className="modal-footer justify-content-between">
-              <p className="fw-bold">Subtotal `{subtotal}</p>
+          </div>
+        </div>
+        <div
+          className="modal fade"
+          id="exampleModalToggle2"
+          aria-hidden="true"
+          aria-labelledby="exampleModalToggleLabel2"
+          tabindex="-1"
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalToggleLabel2">
+                  {restaurant.name}
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                <div className="mb-3">
+                  <label className="form-label">Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter your name"
+                    value={userLogin.name}
+                    readOnly={true}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Email</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Enter your Email Id"
+                    value={userLogin.email}
+                    readOnly={true}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Contact Number</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter your Contact Number"
+                    value={contactNumber}
+                    onChange={(e) => {
+                      setContactNumber(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="">
+                  <label className="form-label">Address</label>
+                  <textarea
+                    className="form-control"
+                    placeholder="Enter your address"
+                    id="floatingTextarea"
+                    rows="5"
+                    value="@Guwahati"
+                  ></textarea>
+                </div>
+              </div>
+              <div className="modal-footer d-flex justify-content-between">
+                <button
+                  className="btn btn-primary"
+                  data-bs-target="#exampleModalToggle"
+                  data-bs-toggle="modal"
+                >
+                  GO BACK
+                </button>
+                <button className="btn btn-success" onClick={DisplayRazorpay}>
+                  PROCEED
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Header />
+        <section className="row justify-content-center">
+          <section className="col-11 mt-2 restaurant-main-image position-relative">
+            <img src={restaurant.image} alt="" />
+            <button className="btn-gallery position-absolute btn" data-bs-toggle="modal" data-bs-target="#slideShow">
+              Click to see Image Gallery
+            </button>
+          </section>
+          <section className="col-11 mt-3">
+            <h3>{restaurant.name}</h3>
+            <div className="d-flex justify-content-between align-items-start">
+              <ul className="list-unstyled d-flex gap-3 fw-bold">
+                <li
+                  className="pb-2 hand"
+                  onClick={() => {
+                    setTab(1);
+                  }}
+                >
+                  Overview
+                </li>
+                <li
+                  className="pb-2 hand"
+                  onClick={() => {
+                    setTab(2);
+                  }}
+                >
+                  Contact
+                </li>
+              </ul>
               <button
                 className="btn btn-danger"
-                data-bs-target="#exampleModalToggle2"
                 data-bs-toggle="modal"
+                href="#exampleModalToggle"
+                role="button"
+                onClick={() => getMenuItems()}
+                disabled={userLogin ? false : true}
               >
-                Pay Now
+                Place Online Order
               </button>
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="modal fade"
-        id="exampleModalToggle2"
-        aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2"
-        tabindex="-1"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalToggleLabel2">
-                {restaurant.name}
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              <div className="mb-3">
-                <label className="form-label">Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter your name"
-                  value={userLogin.name}
-                  readOnly={true}
-                />
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Email</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Enter your Email Id"
-                  value={userLogin.email}
-                  readOnly={true}
-                />
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Contact Number</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter your Contact Number"
-                  value={contactNumber}
-                  onChange={(e)=>{setContactNumber(e.target.value)}}
-                />
-              </div>
-              <div className="">
-                <label className="form-label">Address</label>
-                <textarea
-                  className="form-control"
-                  placeholder="Enter your address"
-                  id="floatingTextarea"
-                  rows="5"
-                  value="@Guwahati"
-                ></textarea>
-              </div>
-            </div>
-            <div className="modal-footer d-flex justify-content-between">
-              <button
-                className="btn btn-primary"
-                data-bs-target="#exampleModalToggle"
-                data-bs-toggle="modal"
-              >
-                GO BACK
-              </button>
-              <button className="btn btn-success" onClick={DisplayRazorpay}>
-                PROCEED
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <Header />
-      <section className="row justify-content-center">
-        <section className="col-11 mt-2 restaurant-main-image position-relative">
-          <img src={restaurant.image} alt="" />
-          <button className="btn-gallery position-absolute btn">
-            Click to see Image Gallery
-          </button>
-        </section>
-        <section className="col-11 mt-3">
-          <h3>{restaurant.name}</h3>
-          <div className="d-flex justify-content-between align-items-start">
-            <ul className="list-unstyled d-flex gap-3 fw-bold">
-              <li
-                className="pb-2 hand"
-                onClick={() => {
-                  setTab(1);
-                }}
-              >
-                Overview
-              </li>
-              <li
-                className="pb-2 hand"
-                onClick={() => {
-                  setTab(2);
-                }}
-              >
-                Contact
-              </li>
-            </ul>
-            <button
-              className="btn btn-danger"
-              data-bs-toggle="modal"
-              href="#exampleModalToggle"
-              role="button"
-              onClick={() => getMenuItems()}
-              disabled={userLogin ? false : true}
-            >
-              Place Online Order
-            </button>
-          </div>
-          {tab === 1 ? (
-            <section>
-              <h4 className="mb-3">About this place</h4>
-              <p className="m-0 fw-bold">Cuisine</p>
-              <p className="mb-3 text-muted small">
-                {restaurant.cuisine.length > 0
-                  ? restaurant.cuisine.reduce((pVal, cVal) => {
-                      return pVal.name + ", " + cVal.name;
-                    })
-                  : null}
-              </p>
+            {tab === 1 ? (
+              <section>
+                <h4 className="mb-3">About this place</h4>
+                <p className="m-0 fw-bold">Cuisine</p>
+                <p className="mb-3 text-muted small">
+                  {restaurant.cuisine.length > 0
+                    ? restaurant.cuisine.reduce((pVal, cVal) => {
+                        return pVal.name + ", " + cVal.name;
+                      })
+                    : null}
+                </p>
 
-              <p className="m-0 fw-bold">Average Cost</p>
-              <p className="mb-3 text-muted small">
-                ₹{restaurant.min_price} for two people (approx.)
-              </p>
-            </section>
-          ) : (
-            <section>
-              <h4 className="mb-3">Contact</h4>
-              <p className="m-0 fw-bold">Phone Number</p>
-              <p className="mb-3 text-danger small">
-                +{restaurant.contact_number}
-              </p>
+                <p className="m-0 fw-bold">Average Cost</p>
+                <p className="mb-3 text-muted small">
+                  ₹{restaurant.min_price} for two people (approx.)
+                </p>
+              </section>
+            ) : (
+              <section>
+                <h4 className="mb-3">Contact</h4>
+                <p className="m-0 fw-bold">Phone Number</p>
+                <p className="mb-3 text-danger small">
+                  +{restaurant.contact_number}
+                </p>
 
-              <p className="m-0 fw-bold">{restaurant.name}</p>
-              <p className="mb-3 text-muted small">
-                {restaurant.locality}, {restaurant.city}
-              </p>
-            </section>
-          )}
+                <p className="m-0 fw-bold">{restaurant.name}</p>
+                <p className="mb-3 text-muted small">
+                  {restaurant.locality}, {restaurant.city}
+                </p>
+              </section>
+            )}
+          </section>
         </section>
-      </section>
-    </div>
+      </div>
+    </>
   );
 };
 export default RestaurantPage;
