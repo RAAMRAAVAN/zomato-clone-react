@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 function Wallpaper() {
   const [locationList, setLocationList] = useState([]);
+  let Navigate = useNavigate();
   const [location, setLocation] = useState("");
   const [restaurantList, setRestaurantList] = useState([]);
   const [disabled, setDisabled] = useState(true);
@@ -66,7 +68,8 @@ function Wallpaper() {
     let data = jwt_decode(token);
     console.log("token", data);
     alert("user Loged in successfully");
-    window.location.reload();
+    // window.location.reload();
+    Navigate("/")
   };
   let onError = () => {
     alert("Login Failed");
@@ -76,7 +79,8 @@ function Wallpaper() {
     localStorage.removeItem("user");
     alert("User Loged out successfully");
     setUserLogin(false);
-    window.location.reload();
+    // window.location.reload();
+    Navigate("/")
   };
   return (
     <GoogleOAuthProvider clientId="474870145945-g63ahuiehm6c8v08kkd8cvfff2s90bd0.apps.googleusercontent.com">
