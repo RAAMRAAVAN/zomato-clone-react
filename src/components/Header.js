@@ -67,7 +67,8 @@ function Header() {
           'Logout Successful!',
         )
         setUserLogin(false);
-        window.location.reload();
+        Navigate("/")
+        // window.location.reload();
       } else if (
         /* Read more about handling dismissals below */
         result.dismiss === Swal.DismissReason.cancel
