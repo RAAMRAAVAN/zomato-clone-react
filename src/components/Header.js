@@ -32,7 +32,8 @@ function Header() {
       title: 'Login Successful',
       text: 'user Loged in successfully',
     }).then(()=>{
-      // Navigate("/")
+
+      Navigate("/")
       window.location.reload();
     })
   };
